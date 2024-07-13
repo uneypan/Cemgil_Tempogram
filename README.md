@@ -16,7 +16,7 @@ This is a python implementation of Cemgil's tempogram.
 
 **Simple usage**:
 ```python
-from rythm import cegmil_tempogram
+from cegmil.rythm import cegmil_tempogram
 Tg = cegmil_tempogram('95bpm.wav',
                         fps=100, 
                         d_range=(1, 300), 
