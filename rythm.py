@@ -84,13 +84,13 @@ def calculate_Tg_torch(x, t_values, d_values, a_m, device='cuda'):
 
     return Tg.cpu().numpy()
 
-def cegmil_tempogram(dir=None, onset_envelope=None, fps=100, d_range=(1, 300), 
+def cemgil_tempogram(dir=None, onset_envelope=None, fps=100, d_range=(1, 300), 
                      a_m=[0.25, 0.5, 1, 0.5, 0.25], 
                      device='cpu', plot=False, ground=None,):
     """
-    Calculate the Cemgil Tempogram.
+    Calculate the Cemgil Tempogram[1].
 
-    > Cemgil A T, Kappen B, Desain P, et al. On tempo tracking: Tempogram representation and Kalman filtering[J]. Journal of New Music Research, 2000, 29(4): 259-273.
+    [1] Cemgil A T, Kappen B, Desain P, et al. On tempo tracking: Tempogram representation and Kalman filtering[J]. Journal of New Music Research, 2000, 29(4): 259-273.
     
     Args:
         dir (str, optional): The directory of the audio file. Either `dir` or `onset_envelope` must be provided. Defaults to None.
@@ -170,16 +170,16 @@ def cegmil_tempogram(dir=None, onset_envelope=None, fps=100, d_range=(1, 300),
 if __name__ == "__main__":
 
     # simple usage:
-    Tg = cegmil_tempogram('test.wav', plot=True)
+    Tg = cemgil_tempogram('test.wav', plot=True)
 
     # Compare numpy and torch implementations
     from time import time
     start = time()
-    Tg = cegmil_tempogram('test.wav', device='cpu')
+    Tg = cemgil_tempogram('test.wav', device='cpu')
     print(f'Numpy version: {time()-start}s')
 
     start = time()
-    Tg_torch = cegmil_tempogram('test.wav', device='cuda')
+    Tg_torch = cemgil_tempogram('test.wav', device='cuda')
     print(f'Torch version: {time()-start}s')
 
     # Check if the results are the same

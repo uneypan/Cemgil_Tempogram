@@ -16,14 +16,14 @@ This is a python implementation of Cemgil's tempogram.
 
 **Simple usage**:
 ```python
-from cegmil.rythm import cegmil_tempogram
-Tg = cegmil_tempogram('95bpm.wav',
+from cemgil.rythm import cemgil_tempogram
+Tg = cemgil_tempogram('cemgil/test.wav',
                         fps=100, 
                         d_range=(1, 300), 
                         a_m=[0.25, 0.5, 1, 0.5, 0.25], 
                         device='cpu')
 ```
-Tg.shape align with [librosa](https://librosa.org/doc/latest/generated/librosa.feature.tempogram.html).
+Result `Tg` shape align with [librosa.feature.tempogram](https://librosa.org/doc/latest/generated/librosa.feature.tempogram.html).
 
 `device` set to `'cuda'` to use Torch version, otherwise Numpy.
 
